@@ -1,25 +1,33 @@
 {
-	"name": "@techmmunity/base-project-packages",
+	"name": "@techmmunity/symbiosis-nestjs",
 	"version": "0.0.1",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
 	"description": "Description",
-	"homepage": "https://github.com/techmmunity/base-project-packages#readme",
+	"homepage": "https://github.com/techmmunity/symbiosis-nestjs#readme",
 	"bugs": {
-		"url": "https://github.com/techmmunity/base-project-packages/issues"
+		"url": "https://github.com/techmmunity/symbiosis-nestjs/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/techmmunity/base-project-packages.git"
+		"url": "git+https://github.com/techmmunity/symbiosis-nestjs.git"
 	},
 	"keywords": [
 		"package",
 		"keywords"
 	],
+	"peerDependencies": {
+		"@nestjs/common": "^8.0.11",
+		"@nestjs/core": "^8.0.11",
+		"@techmmunity/symbiosis": "^0.0.4"
+	},
 	"devDependencies": {
-		"@techmmunity/eslint-config": "^5.0.2",
+		"@nestjs/common": "^8.0.11",
+		"@nestjs/core": "^8.0.11",
+		"@techmmunity/eslint-config": "^5.0.3",
+		"@techmmunity/symbiosis": "^0.0.5",
 		"@types/jest": "^27.0.2",
 		"@vercel/ncc": "^0.31.1",
 		"eslint": "^7.31.0",

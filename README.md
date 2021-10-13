@@ -1,28 +1,26 @@
 <div align="center">
-	<img src="https://github.com/techmmunity/base-project-packages/raw/master/resources/logo.jpg" width="300" height="300">
-</div>
 
-<div align="center">
+<img src="https://github.com/techmmunity/symbiosis-nestjs/raw/master/resources/logo.jpg" width="300" height="300">
 
-# Techmmunity - Base Project Packages
+# Techmmunity - Symbiosis NestJS
 
 <a href="https://github.com/techmmunity/eslint-config">
 	<img src="https://img.shields.io/badge/style%20guide-Techmmunity-01d2ce?style=for-the-badge" alt="Style Guide: Techmmunity">
 </a>
-<a href="https://www.codefactor.io/repository/github/techmmunity/base-project-packages">
-	<img src="https://www.codefactor.io/repository/github/techmmunity/base-project-packages/badge?style=for-the-badge" alt="CodeFactor">
+<a href="https://www.codefactor.io/repository/github/techmmunity/symbiosis-nestjs">
+	<img src="https://www.codefactor.io/repository/github/techmmunity/symbiosis-nestjs/badge?style=for-the-badge" alt="CodeFactor">
 </a>
-<a href="https://coveralls.io/github/techmmunity/base-project-packages?branch=master">
-	<img src="https://img.shields.io/coveralls/github/techmmunity/base-project-packages/master?style=for-the-badge" alt="Coveralls">
+<a href="https://coveralls.io/github/techmmunity/symbiosis-nestjs?branch=master">
+	<img src="https://img.shields.io/coveralls/github/techmmunity/symbiosis-nestjs/master?style=for-the-badge" alt="Coveralls">
 </a>
-<a href="https://github.com/techmmunity/base-project-packages/actions/workflows/coverage.yml">
-	<img src="https://img.shields.io/github/workflow/status/techmmunity/base-project-packages/tests?label=tests&logo=github&style=for-the-badge" alt="Tests">
+<a href="https://github.com/techmmunity/symbiosis-nestjs/actions/workflows/coverage.yml">
+	<img src="https://img.shields.io/github/workflow/status/techmmunity/symbiosis-nestjs/tests?label=tests&logo=github&style=for-the-badge" alt="Tests">
 </a>
-<a href="https://www.npmjs.com/package/@techmmunity/base-project-packages">
-	<img src="https://img.shields.io/npm/v/@techmmunity/base-project-packages.svg?color=CC3534&style=for-the-badge" alt="Npm">
+<a href="https://www.npmjs.com/package/@techmmunity/symbiosis-nestjs">
+	<img src="https://img.shields.io/npm/v/@techmmunity/symbiosis-nestjs.svg?color=CC3534&style=for-the-badge" alt="Npm">
 </a>
-<a href="https://www.npmjs.com/package/@techmmunity/base-project-packages">
-	<img src="https://img.shields.io/npm/dw/@techmmunity/base-project-packages.svg?style=for-the-badge" alt="Downloads">
+<a href="https://www.npmjs.com/package/@techmmunity/symbiosis-nestjs">
+	<img src="https://img.shields.io/npm/dw/@techmmunity/symbiosis-nestjs.svg?style=for-the-badge" alt="Downloads">
 </a>
 
 <br>
@@ -32,36 +30,95 @@
 
 > Description of the package
 
-## Install
+## Installation
 
 With Yarn:
 
 ```sh
-yarn add @techmmunity/base-project-packages
+yarn add @techmmunity/symbiosis-nestjs
 ```
 
 With NPM:
 
 ```sh
-npm i @techmmunity/base-project-packages
+npm i @techmmunity/symbiosis-nestjs
 ```
 
 ## Usage
 
-With TypeScript:
-
 ```ts
+// app.module.ts
 
+import { Module } from "@nestjs/common";
+import { SymbiosisModule } from "@techmmunity/symbiosis-nestjs";
+import { DynamodbConnection } from "@techmmunity/symbiosis-dynamodb";
+
+@Module({
+	imports: [
+		SymbiosisModule.forRoot(DynamodbConnection, {
+			// ...
+			entities: [UserEntity],
+			databaseConnectionConfig: {
+				// ...
+			},
+		}),
+	],
+})
+export class AppModule {}
 ```
 
-With JavaScript:
+```ts
+// user.module.ts
 
-```js
+import { Module } from "@nestjs/common";
+import { SymbiosisModule } from "@techmmunity/symbiosis-nestjs";
+import { UserService } from "./user.service";
+import { UserController } from "./user.controller";
+import { UserEntity } from "./user.entity";
 
+@Module({
+	imports: [SymbiosisModule.forFeature([UserEntity])],
+	providers: [UserService],
+	controllers: [UserController],
+})
+export class UserModule {}
+```
+
+```ts
+// user.service.ts
+
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@techmmunity/symbiosis-nestjs";
+import { Repository } from "@techmmunity/symbiosis";
+import { UserEntity } from "./user.entity";
+
+@Injectable()
+export class UserService {
+	constructor(
+		@InjectRepository(UserEntity)
+		private userRepository: Repository<UserEntity>
+	) {}
+
+	findOne(id: string): Promise<User> {
+		return this.userRepository.findOne({
+			where: {
+				id,
+			},
+		});
+	}
+
+	async remove(id: string): Promise<void> {
+		await this.userRepository.delete({
+			where: {
+				id,
+			},
+		});
+	}
+}
 ```
 
 ## How to contribute?
 
-All the details about contributing to the project are [described here](https://github.com/techmmunity/base-project-services/blob/master/CONTRIBUTING.md).
+All the details about contributing to the project are [described here](https://github.com/techmmunity/symbiosis-nestjs/blob/master/CONTRIBUTING.md).
 
 ## Documentation
