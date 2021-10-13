@@ -15,8 +15,15 @@
 		"url": "git+https://github.com/techmmunity/symbiosis-nestjs.git"
 	},
 	"keywords": [
-		"package",
-		"keywords"
+		"orm",
+		"odm",
+		"nosql",
+		"typeorm",
+		"typescript",
+		"database",
+		"data-mapper",
+		"object-mapper",
+		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
 		"@nestjs/common": "^8.0.11",
