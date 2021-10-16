@@ -110,10 +110,12 @@
 		"injectables",
 		"nestjs",
 		"nodemodules",
+		"nosql",
 		"prebuild",
 		"sonarjs",
 		"techmmunity",
 		"tsbuildinfo",
+		"typeorm",
 		"vercel"
 	]
 }
