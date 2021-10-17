@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 /**
  * ---------------------------------------------------------------------------
  *
@@ -18,3 +20,14 @@ export * from "./lib/symbiosis.module";
 
 export * from "./lib/decorators/inject-connection";
 export * from "./lib/decorators/inject-repository";
+
+/**
+ * ---------------------------------------------------------------------------
+ *
+ * Utils
+ *
+ * ---------------------------------------------------------------------------
+ */
+
+export * from "./lib/utils/get-connection-token";
+export * from "./lib/utils/get-repository-token";
