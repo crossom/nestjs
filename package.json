@@ -1,6 +1,6 @@
 {
 	"name": "@techmmunity/symbiosis-nestjs",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
@@ -23,19 +23,20 @@
 		"database",
 		"data-mapper",
 		"object-mapper",
+		"nestjs",
 		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
 		"@nestjs/common": "^8.0.11",
 		"@nestjs/core": "^8.0.11",
-		"@techmmunity/symbiosis": "^0.0.9",
+		"@techmmunity/symbiosis": "^0.0.11",
 		"reflect-metadata": "^0.1.13"
 	},
 	"devDependencies": {
 		"@nestjs/common": "^8.0.11",
 		"@nestjs/core": "^8.0.11",
 		"@techmmunity/eslint-config": "^5.0.3",
-		"@techmmunity/symbiosis": "^0.0.9",
+		"@techmmunity/symbiosis": "^0.0.11",
 		"@types/jest": "^27.0.2",
 		"@vercel/ncc": "^0.31.1",
 		"eslint": "^7.31.0",

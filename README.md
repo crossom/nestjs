@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/techmmunity/symbiosis-nestjs/raw/master/resources/logo.jpg" width="300" height="300">
+<img src="https://github.com/techmmunity/symbiosis/raw/master/resources/logo.gif" width="300" height="300">
 
 # Techmmunity - Symbiosis NestJS
 
@@ -14,7 +14,7 @@
 	<img src="https://img.shields.io/coveralls/github/techmmunity/symbiosis-nestjs/master?style=for-the-badge" alt="Coveralls">
 </a>
 <a href="https://github.com/techmmunity/symbiosis-nestjs/actions/workflows/coverage.yml">
-	<img src="https://img.shields.io/github/workflow/status/techmmunity/symbiosis-nestjs/tests?label=tests&logo=github&style=for-the-badge" alt="Tests">
+	<img src="https://img.shields.io/github/workflow/status/techmmunity/symbiosis-nestjs/Collect%20Coverage?label=tests&logo=github&style=for-the-badge" alt="Tests">
 </a>
 <a href="https://www.npmjs.com/package/@techmmunity/symbiosis-nestjs">
 	<img src="https://img.shields.io/npm/v/@techmmunity/symbiosis-nestjs.svg?color=CC3534&style=for-the-badge" alt="Npm">
@@ -28,20 +28,20 @@
 
 </div>
 
-> Description of the package
+A NestJs wrapper for Techmmunity Symbiosis
 
 ## Installation
 
 With Yarn:
 
 ```sh
-yarn add @techmmunity/symbiosis-nestjs
+yarn add @techmmunity/symbiosis @techmmunity/symbiosis-nestjs
 ```
 
 With NPM:
 
 ```sh
-npm i @techmmunity/symbiosis-nestjs
+npm i --save @techmmunity/symbiosis @techmmunity/symbiosis-nestjs
 ```
 
 ## Usage
@@ -51,14 +51,17 @@ npm i @techmmunity/symbiosis-nestjs
 
 import { Module } from "@nestjs/common";
 import { SymbiosisModule } from "@techmmunity/symbiosis-nestjs";
-import { DynamodbConnection } from "@techmmunity/symbiosis-dynamodb";
+import {
+	DynamodbConnection,
+	DynamodbConnectionConfig,
+} from "@techmmunity/symbiosis-dynamodb";
 
 @Module({
 	imports: [
-		SymbiosisModule.forRoot(DynamodbConnection, {
+		SymbiosisModule.forRoot<DynamodbConnectionConfig>(DynamodbConnection, {
 			// ...
 			entities: [UserEntity],
-			databaseConnectionConfig: {
+			databaseConfig: {
 				// ...
 			},
 		}),
