@@ -28,7 +28,7 @@
 
 </div>
 
-A NestJs wrapper for Techmmunity Symbiosis
+A NestJs wrapper for [@techmmunity/symbiosis](https://github.com/techmmunity/symbiosis).
 
 ## Installation
 

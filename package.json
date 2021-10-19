@@ -1,11 +1,11 @@
 {
 	"name": "@techmmunity/symbiosis-nestjs",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
-	"description": "A NestJs wrapper for Techmmunity Symbiosis",
+	"description": "A NestJs wrapper for @techmmunity/symbiosis",
 	"homepage": "https://github.com/techmmunity/symbiosis-nestjs#readme",
 	"bugs": {
 		"url": "https://github.com/techmmunity/symbiosis-nestjs/issues"
