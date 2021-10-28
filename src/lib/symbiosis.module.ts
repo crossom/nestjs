@@ -1,6 +1,5 @@
 import { DynamicModule, Module } from "@nestjs/common";
 import { BaseConnectionOptions } from "@techmmunity/symbiosis";
-import { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
 import { SymbiosisCoreModule } from "./symbiosis-core.module";
 
 import { createRepositoriesProviders } from "./utils/create-repository-providers";
@@ -11,7 +10,7 @@ export class SymbiosisModule {
 	public static forRoot<ConnectionOptions extends BaseConnectionOptions>(
 		// eslint-disable-next-line @typescript-eslint/naming-convention
 		ConnectionClass: any,
-		options: ConnectionOptions,
+		options?: ConnectionOptions,
 	): DynamicModule {
 		return {
 			module: SymbiosisModule,
@@ -20,7 +19,7 @@ export class SymbiosisModule {
 	}
 
 	public static forFeature(
-		entities: Array<CustomClass> = [],
+		entities: Array<any> = [],
 		connectionName?: string,
 	): DynamicModule {
 		const connectionToken = getConnectionToken(connectionName);

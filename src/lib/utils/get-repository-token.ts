@@ -1,11 +1,9 @@
-import { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
-
 export const getRepositoryToken = (
-	entity: CustomClass,
+	entity: any,
 	connectionName?: string,
 ): string => {
 	const connectionNameFormatted = connectionName?.toUpperCase() || "DEFAULT";
-	const entityName = (entity as any).name.toUpperCase();
+	const entityName = entity.name.toUpperCase();
 
 	return `${connectionNameFormatted}_${entityName}_REPOSITORY`;
 };

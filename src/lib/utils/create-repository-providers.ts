@@ -1,5 +1,5 @@
 import { Provider } from "@nestjs/common";
-import { Connection } from "@techmmunity/symbiosis";
+import { BaseConnection } from "@techmmunity/symbiosis";
 import { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
 import { getRepositoryToken } from "./get-repository-token";
 
@@ -16,6 +16,7 @@ export const createRepositoriesProviders = ({
 }: CreateRepositoryProvidersParams): Array<Provider> =>
 	entities.map(entity => ({
 		provide: getRepositoryToken(entity, connectionName),
-		useFactory: (connection: Connection) => connection.getRepository(entity),
+		useFactory: (connection: BaseConnection) =>
+			connection.getRepository(entity),
 		inject: [connectionToken],
 	}));

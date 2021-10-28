@@ -1,12 +1,12 @@
 {
 	"name": "@techmmunity/symbiosis-nestjs",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
 	"author": "Techmmunity",
 	"description": "A NestJs wrapper for @techmmunity/symbiosis",
-	"homepage": "https://github.com/techmmunity/symbiosis-nestjs#readme",
+	"homepage": "https://symbiosis.techmmunity.com.br/",
 	"bugs": {
 		"url": "https://github.com/techmmunity/symbiosis-nestjs/issues"
 	},
@@ -29,14 +29,14 @@
 	"peerDependencies": {
 		"@nestjs/common": "^8.0.11",
 		"@nestjs/core": "^8.0.11",
-		"@techmmunity/symbiosis": "^0.0.21",
+		"@techmmunity/symbiosis": "^0.0.24",
 		"reflect-metadata": "^0.1.13"
 	},
 	"devDependencies": {
 		"@nestjs/common": "^8.0.11",
 		"@nestjs/core": "^8.0.11",
 		"@techmmunity/eslint-config": "^5.0.3",
-		"@techmmunity/symbiosis": "^0.0.21",
+		"@techmmunity/symbiosis": "^0.0.24",
 		"@types/jest": "^27.0.2",
 		"@vercel/ncc": "^0.31.1",
 		"eslint": "^7.31.0",
@@ -59,6 +59,7 @@
 		"lint": "eslint . --quiet",
 		"update-dependencies": "yarn upgrade-interactive --latest",
 		"husky:pre-commit": "tsc",
-		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd .."
+		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd ..",
+		"ulk": "yarn unlink && yarn lk"
 	}
 }

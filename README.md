@@ -35,93 +35,15 @@ A NestJs wrapper for [@techmmunity/symbiosis](https://github.com/techmmunity/sym
 With Yarn:
 
 ```sh
-yarn add @techmmunity/symbiosis @techmmunity/symbiosis-nestjs
+yarn add @techmmunity/symbiosis-nestjs
 ```
 
 With NPM:
 
 ```sh
-npm i --save @techmmunity/symbiosis @techmmunity/symbiosis-nestjs
+npm i @techmmunity/symbiosis-nestjs
 ```
 
 ## Usage
 
-```ts
-// app.module.ts
-
-import { Module } from "@nestjs/common";
-import { SymbiosisModule } from "@techmmunity/symbiosis-nestjs";
-import {
-	DynamodbConnection,
-	DynamodbConnectionConfig,
-} from "@techmmunity/symbiosis-dynamodb";
-
-@Module({
-	imports: [
-		SymbiosisModule.forRoot<DynamodbConnectionConfig>(DynamodbConnection, {
-			// ...
-			entities: [UserEntity],
-			databaseConfig: {
-				// ...
-			},
-		}),
-	],
-})
-export class AppModule {}
-```
-
-```ts
-// user.module.ts
-
-import { Module } from "@nestjs/common";
-import { SymbiosisModule } from "@techmmunity/symbiosis-nestjs";
-import { UserService } from "./user.service";
-import { UserController } from "./user.controller";
-import { UserEntity } from "./user.entity";
-
-@Module({
-	imports: [SymbiosisModule.forFeature([UserEntity])],
-	providers: [UserService],
-	controllers: [UserController],
-})
-export class UserModule {}
-```
-
-```ts
-// user.service.ts
-
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@techmmunity/symbiosis-nestjs";
-import { Repository } from "@techmmunity/symbiosis";
-import { UserEntity } from "./user.entity";
-
-@Injectable()
-export class UserService {
-	constructor(
-		@InjectRepository(UserEntity)
-		private userRepository: Repository<UserEntity>
-	) {}
-
-	findOne(id: string): Promise<User> {
-		return this.userRepository.findOne({
-			where: {
-				id,
-			},
-		});
-	}
-
-	async remove(id: string): Promise<void> {
-		await this.userRepository.delete({
-			where: {
-				id,
-			},
-		});
-	}
-}
-```
-
-## How to contribute?
-
-All the details about contributing to the project are [described here](https://github.com/techmmunity/symbiosis-nestjs/blob/master/CONTRIBUTING.md).
-
-## Documentation
+Please, check [the docs](https://symbiosis.techmmunity.com.br/docs/integrations/nestjs) for more information.
