@@ -1,5 +1,8 @@
-import type { BaseConnectionOptions, Connection } from "@techmmunity/symbiosis";
+import type {
+	BaseConnectionOptions,
+	BaseConnection,
+} from "@techmmunity/symbiosis";
 
 export interface SymbiosisPluginClass {
-	new (options: BaseConnectionOptions): Connection;
+	new (options?: BaseConnectionOptions): BaseConnection;
 }
