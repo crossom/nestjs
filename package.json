@@ -1,6 +1,6 @@
 {
 	"name": "@techmmunity/symbiosis-nestjs",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"main": "index.js",
 	"types": "index.d.ts",
 	"license": "Apache-2.0",
@@ -27,14 +27,14 @@
 		"techmmunity-symbiosis"
 	],
 	"peerDependencies": {
-		"@nestjs/common": "^8.0.11",
-		"@nestjs/core": "^8.0.11",
+		"@nestjs/common": "^8.2.0",
+		"@nestjs/core": "^8.2.0",
 		"@techmmunity/symbiosis": "^0.0.27",
 		"reflect-metadata": "^0.1.13"
 	},
 	"devDependencies": {
-		"@nestjs/common": "^8.0.11",
-		"@nestjs/core": "^8.0.11",
+		"@nestjs/common": "^8.2.0",
+		"@nestjs/core": "^8.2.0",
 		"@techmmunity/eslint-config": "^5.0.3",
 		"@techmmunity/symbiosis": "^0.0.27",
 		"@types/jest": "^27.0.2",
@@ -42,7 +42,7 @@
 		"eslint": "^8.1.0",
 		"husky": "^7.0.1",
 		"jest": "^27.0.6",
-		"lint-staged": "^11.2.3",
+		"lint-staged": "^12.0.2",
 		"prettier": "^2.3.2",
 		"reflect-metadata": "^0.1.13",
 		"ts-jest": "^27.0.4",
@@ -57,7 +57,7 @@
 		"build": "ncc build src/index.ts -o dist -s -m -e @techmmunity/symbiosis -e @nestjs/common -e @nestjs/core -e reflect-metadata",
 		"format": "eslint . --fix --quiet",
 		"lint": "eslint . --quiet",
-		"update-dependencies": "yarn upgrade-interactive --latest",
+		"upgrade-dependencies": "yarn upgrade-interactive --latest",
 		"husky:pre-commit": "tsc",
 		"lk": "yarn build && cp package.json dist/package.json && cd dist && yarn link && cd ..",
 		"ulk": "yarn unlink && yarn lk"

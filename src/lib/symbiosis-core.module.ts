@@ -14,6 +14,7 @@ import {
 } from "@techmmunity/symbiosis";
 import { SYMBIOSIS_MODULE_OPTIONS } from "./symbiosis.constants";
 import { ForRootOptions } from "./types/options";
+import { SymbiosisPluginClass } from "./types/symbiosis";
 import { getArrayOptions } from "./utils/get-array-options";
 import { getConnectionToken } from "./utils/get-connection-token";
 
@@ -34,7 +35,7 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 		const connectionsProviders: Array<Provider> = arrOptions.map(opt => ({
 			provide: getConnectionToken(opt.options.name),
 			useFactory: async () => {
-				const connection = new opt.class(opt);
+				const connection = new (opt.class as SymbiosisPluginClass)(opt.options);
 
 				await connection.load();
 				await connection.connect();
