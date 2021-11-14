@@ -1,6 +1,7 @@
 ## What this PR introduces?
 
 Issue Number: N/A
+PR Of Documentation Update: N/A
 
 <!-- Please, includes description of this pull request -->
 
@@ -8,12 +9,12 @@ Issue Number: N/A
 
 Please check if your PR fulfills the following requirements:
 
-- [ ] The commit message follows our guidelines: https://github.com/techmmunity/symbiosis-nestjs/blob/master/CONTRIBUTING.md
+- [ ] My contribution follows [the guidelines](https://github.com/techmmunity/easy-check/blob/master/CONTRIBUTING.md)
+- [ ] I followed [GitFlow](https://github.com/techmmunity/git-magic/blob/master/docs/en/gitflow.md) pattern to create the branch
 - [ ] Tests for the changes have been added
-- [ ] Docs have been added / updated
-- [ ] I followed GitFlow pattern to create the branch
+- [ ] I created a PR to add / update the documentation (or aren't necessary)
+- [ ] The changes has been added to `CHANGELOG.md`
 - [ ] My code produces no warnings or errors
-- [ ] Tests for the changes have been added / updated
 
 ## PR Type
 
@@ -27,6 +28,7 @@ What kind of change does this PR introduce?
 [ ] Code style update (formatting, local variables)
 [ ] Refactoring (no functional changes, no api changes)
 [ ] CI/CD related changes
+[ ] Other: ...
 ```
 
 ## Does this PR introduce a breaking change?
