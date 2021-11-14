@@ -12,15 +12,16 @@ import {
 	BaseConnectionOptions,
 	Logger,
 } from "@techmmunity/symbiosis";
-import { SYMBIOSIS_MODULE_OPTIONS_ARRAY } from "./symbiosis.constants";
+import { SYMBIOSIS_MODULE_OPTIONS } from "./symbiosis.constants";
 import { SymbiosisPluginClass } from "./types/symbiosis";
+import { getArrayOptions } from "./utils/get-array-options";
 import { getConnectionToken } from "./utils/get-connection-token";
 
 @Global()
 @Module({})
 export class SymbiosisCoreModule implements OnApplicationShutdown {
 	public constructor(
-		@Inject(SYMBIOSIS_MODULE_OPTIONS_ARRAY)
+		@Inject(SYMBIOSIS_MODULE_OPTIONS)
 		private readonly options: Array<BaseConnectionOptions>,
 		private readonly moduleRef: ModuleRef,
 	) {}
@@ -28,46 +29,37 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 	public static forRoot<ConnectionOptions extends BaseConnectionOptions>(
 		// eslint-disable-next-line @typescript-eslint/naming-convention
 		ConnectionClass: any,
-		options?: ConnectionOptions,
+		options?: Array<ConnectionOptions> | ConnectionOptions,
 	): DynamicModule {
-		/**
-		 * Must defined a array of options, because have to
-		 * get the name of the connections to close it
-		 * (Symb supports multiples connections)
-		 */
-		const symbiosisModuleOptions: Provider = {
-			provide: SYMBIOSIS_MODULE_OPTIONS_ARRAY,
-			useFactory: (optionsProvider?: Array<BaseConnectionOptions>) => [
-				...(optionsProvider || []),
-				options,
-			],
-			inject: [SYMBIOSIS_MODULE_OPTIONS_ARRAY],
-		};
+		const arrOptions = getArrayOptions<ConnectionOptions>(options);
 
-		const connectionProvider: Provider = {
-			provide: getConnectionToken(options?.name),
+		const connectionsProviders: Array<Provider> = arrOptions.map(opt => ({
+			provide: getConnectionToken(opt.name),
 			useFactory: async () => {
-				const connection = new (ConnectionClass as SymbiosisPluginClass)(
-					options,
-				);
+				const connection = new (ConnectionClass as SymbiosisPluginClass)(opt);
 
 				await connection.load();
 				await connection.connect();
 
 				return connection;
 			},
+		}));
+
+		const connectionsOptions: Provider = {
+			provide: SYMBIOSIS_MODULE_OPTIONS,
+			useValue: arrOptions,
 		};
 
 		return {
 			module: SymbiosisCoreModule,
-			providers: [connectionProvider, symbiosisModuleOptions],
-			exports: [connectionProvider],
+			providers: [...connectionsProviders, connectionsOptions],
+			exports: [...connectionsProviders],
 		};
 	}
 
 	public async onApplicationShutdown() {
-		const connections = this.options.map(conOpt =>
-			this.moduleRef.get<BaseConnection>(getConnectionToken(conOpt.name)),
+		const connections = this.options.map(opt =>
+			this.moduleRef.get<BaseConnection>(getConnectionToken(opt.name)),
 		);
 
 		try {
