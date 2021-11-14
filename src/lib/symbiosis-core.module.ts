@@ -13,7 +13,7 @@ import {
 	Logger,
 } from "@techmmunity/symbiosis";
 import { SYMBIOSIS_MODULE_OPTIONS } from "./symbiosis.constants";
-import { SymbiosisPluginClass } from "./types/symbiosis";
+import { ForRootOptions } from "./types/options";
 import { getArrayOptions } from "./utils/get-array-options";
 import { getConnectionToken } from "./utils/get-connection-token";
 
@@ -27,16 +27,14 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 	) {}
 
 	public static forRoot<ConnectionOptions extends BaseConnectionOptions>(
-		// eslint-disable-next-line @typescript-eslint/naming-convention
-		ConnectionClass: any,
-		options?: Array<ConnectionOptions> | ConnectionOptions,
+		options: ForRootOptions<ConnectionOptions>,
 	): DynamicModule {
 		const arrOptions = getArrayOptions<ConnectionOptions>(options);
 
 		const connectionsProviders: Array<Provider> = arrOptions.map(opt => ({
-			provide: getConnectionToken(opt.name),
+			provide: getConnectionToken(opt.options.name),
 			useFactory: async () => {
-				const connection = new (ConnectionClass as SymbiosisPluginClass)(opt);
+				const connection = new opt.class(opt);
 
 				await connection.load();
 				await connection.connect();
@@ -47,7 +45,7 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 
 		const connectionsOptions: Provider = {
 			provide: SYMBIOSIS_MODULE_OPTIONS,
-			useValue: arrOptions,
+			useValue: arrOptions.map(opt => opt.options),
 		};
 
 		return {

@@ -15,6 +15,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.0.8] - 2021-11-14
+
+### Added
+
+- [BC] Support for multiple connections of different databases
+
+### Changed
+
+### Fixed
+
+### Removed
+
 ## [0.0.7] - 2021-11-14
 
 ### Added
