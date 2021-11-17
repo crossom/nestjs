@@ -8,11 +8,11 @@
 	"description": "A NestJs wrapper for @techmmunity/symbiosis",
 	"homepage": "https://symbiosis.techmmunity.com.br/",
 	"bugs": {
-		"url": "https://github.com/techmmunity/symbiosis-nestjs/issues"
+		"url": "https://github.com/techmmunity-symbiosis/nestjs/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/techmmunity/symbiosis-nestjs.git"
+		"url": "git+https://github.com/techmmunity-symbiosis/nestjs.git"
 	},
 	"keywords": [
 		"orm",
