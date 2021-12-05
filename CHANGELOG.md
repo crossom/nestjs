@@ -5,11 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [UNRELEASED] - 0000-00-00
+## [Unreleased] - 0000-00-00
 
 ### Added
 
 ### Changed
+
+### Fixed
+
+### Removed
+
+## [0.0.10] - 2021-12-05
+
+### Added
+
+### Changed
+
+- Update `@techmmunity/symbiosis` to [0.0.29](https://github.com/techmmunity-symbiosis/symbiosis/blob/master/CHANGELOG.md#0029---2021-12-05)
 
 ### Fixed
 
