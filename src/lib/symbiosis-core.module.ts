@@ -38,6 +38,11 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 				const connection = new (opt.class as SymbiosisPluginClass)(opt.options);
 
 				await connection.load();
+
+				if (opt.validate) {
+					await connection.validate();
+				}
+
 				await connection.connect();
 
 				return connection;

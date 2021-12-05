@@ -1,5 +1,6 @@
 export interface SingleForRootOptions<ConnectionOptions> {
 	class: any;
+	validate?: boolean;
 	options: ConnectionOptions;
 }
 
