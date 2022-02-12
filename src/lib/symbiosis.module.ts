@@ -1,10 +1,13 @@
-import { DynamicModule, Module } from "@nestjs/common";
-import { BaseConnectionOptions } from "@techmmunity/symbiosis";
+import type { DynamicModule } from "@nestjs/common";
+import { Module } from "@nestjs/common";
+import type { BaseConnectionOptions } from "@techmmunity/symbiosis";
+
 import { SymbiosisCoreModule } from "./symbiosis-core.module";
-import { ForRootOptions } from "./types/options";
 
 import { createRepositoriesProviders } from "./utils/create-repository-providers";
 import { getConnectionToken } from "./utils/get-connection-token";
+
+import type { ForRootOptions } from "./types/options";
 
 @Module({})
 export class SymbiosisModule {

@@ -1,5 +1,6 @@
 import { SymbiosisError } from "@techmmunity/symbiosis";
-import { ArrayForRootOptions, ForRootOptions } from "../types/options";
+
+import type { ArrayForRootOptions, ForRootOptions } from "../types/options";
 
 export const getArrayOptions = <T>(
 	options: ForRootOptions<T>,
