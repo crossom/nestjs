@@ -1,7 +1,9 @@
-import { Provider } from "@nestjs/common";
-import { BaseConnection } from "@techmmunity/symbiosis";
-import { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
+import type { Provider } from "@nestjs/common";
+import type { BaseConnection } from "@techmmunity/symbiosis";
+
 import { getRepositoryToken } from "./get-repository-token";
+
+import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
 
 interface CreateRepositoryProvidersParams {
 	entities: Array<CustomClass>;

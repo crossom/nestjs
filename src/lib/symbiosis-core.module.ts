@@ -1,22 +1,23 @@
-import {
+import type {
 	DynamicModule,
-	Global,
-	Inject,
-	Module,
 	OnApplicationShutdown,
 	Provider,
 } from "@nestjs/common";
+import { Global, Inject, Module } from "@nestjs/common";
 import { ModuleRef } from "@nestjs/core";
-import {
+import type {
 	BaseConnection,
 	BaseConnectionOptions,
-	Logger,
 } from "@techmmunity/symbiosis";
+import { Logger } from "@techmmunity/symbiosis";
+
 import { SYMBIOSIS_MODULE_OPTIONS } from "./symbiosis.constants";
-import { ForRootOptions } from "./types/options";
-import { SymbiosisPluginClass } from "./types/symbiosis";
+
 import { getArrayOptions } from "./utils/get-array-options";
 import { getConnectionToken } from "./utils/get-connection-token";
+
+import type { ForRootOptions } from "./types/options";
+import type { SymbiosisPluginClass } from "./types/symbiosis";
 
 @Global()
 @Module({})
