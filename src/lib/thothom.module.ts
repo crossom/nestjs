@@ -2,7 +2,7 @@ import type { DynamicModule } from "@nestjs/common";
 import { Module } from "@nestjs/common";
 import type { BaseConnectionOptions } from "@techmmunity/symbiosis";
 
-import { SymbiosisCoreModule } from "./symbiosis-core.module";
+import { ThothOMCoreModule } from "./thothom-core.module";
 
 import { createRepositoriesProviders } from "./utils/create-repository-providers";
 import { getConnectionToken } from "./utils/get-connection-token";
@@ -10,13 +10,13 @@ import { getConnectionToken } from "./utils/get-connection-token";
 import type { ForRootOptions } from "./types/options";
 
 @Module({})
-export class SymbiosisModule {
+export class ThothOMModule {
 	public static forRoot<ConnectionOptions extends BaseConnectionOptions>(
 		options: ForRootOptions<ConnectionOptions>,
 	): DynamicModule {
 		return {
-			module: SymbiosisModule,
-			imports: [SymbiosisCoreModule.forRoot(options)],
+			module: ThothOMModule,
+			imports: [ThothOMCoreModule.forRoot(options)],
 		};
 	}
 
@@ -33,7 +33,7 @@ export class SymbiosisModule {
 		});
 
 		return {
-			module: SymbiosisModule,
+			module: ThothOMModule,
 			providers,
 			exports: providers,
 		};

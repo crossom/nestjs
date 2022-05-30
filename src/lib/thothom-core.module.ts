@@ -11,19 +11,19 @@ import type {
 } from "@techmmunity/symbiosis";
 import { Logger } from "@techmmunity/symbiosis";
 
-import { SYMBIOSIS_MODULE_OPTIONS } from "./symbiosis.constants";
+import { THOTHOM_MODULE_OPTIONS } from "./thothom.constants";
 
 import { getArrayOptions } from "./utils/get-array-options";
 import { getConnectionToken } from "./utils/get-connection-token";
 
 import type { ForRootOptions } from "./types/options";
-import type { SymbiosisPluginClass } from "./types/symbiosis";
+import type { ThothOMPluginClass } from "./types/thothom";
 
 @Global()
 @Module({})
-export class SymbiosisCoreModule implements OnApplicationShutdown {
+export class ThothOMCoreModule implements OnApplicationShutdown {
 	public constructor(
-		@Inject(SYMBIOSIS_MODULE_OPTIONS)
+		@Inject(THOTHOM_MODULE_OPTIONS)
 		private readonly options: Array<BaseConnectionOptions>,
 		private readonly moduleRef: ModuleRef,
 	) {}
@@ -36,7 +36,7 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 		const connectionsProviders: Array<Provider> = arrOptions.map(opt => ({
 			provide: getConnectionToken(opt.options.name),
 			useFactory: async () => {
-				const connection = new (opt.class as SymbiosisPluginClass)(opt.options);
+				const connection = new (opt.class as ThothOMPluginClass)(opt.options);
 
 				await connection.load();
 
@@ -51,12 +51,12 @@ export class SymbiosisCoreModule implements OnApplicationShutdown {
 		}));
 
 		const connectionsOptions: Provider = {
-			provide: SYMBIOSIS_MODULE_OPTIONS,
+			provide: THOTHOM_MODULE_OPTIONS,
 			useValue: arrOptions.map(opt => opt.options),
 		};
 
 		return {
-			module: SymbiosisCoreModule,
+			module: ThothOMCoreModule,
 			providers: [...connectionsProviders, connectionsOptions],
 			exports: [...connectionsProviders],
 		};

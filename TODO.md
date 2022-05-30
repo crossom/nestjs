@@ -1,3 +1,3 @@
 # Todo
 
-- [ ] Check why `symbiosis.config.js` is not being loaded
+- [ ] Check why `thothom.config.js` is not being loaded
