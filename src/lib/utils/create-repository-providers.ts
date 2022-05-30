@@ -1,9 +1,9 @@
 import type { Provider } from "@nestjs/common";
-import type { BaseConnection } from "@techmmunity/symbiosis";
+import type { BaseConnection } from "@thothom/core";
 
 import { getRepositoryToken } from "./get-repository-token";
 
-import type { CustomClass } from "@techmmunity/symbiosis/lib/entity-manager/types/metadata-type";
+import type { CustomClass } from "@thothom/core/lib/entity-manager/types/metadata-type";
 
 interface CreateRepositoryProvidersParams {
 	entities: Array<CustomClass>;
