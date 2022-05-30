@@ -1,7 +1,7 @@
 import type {
 	BaseConnectionOptions,
 	BaseConnection,
-} from "@techmmunity/symbiosis";
+} from "@thothom/core";
 
 export interface ThothOMPluginClass {
 	new (options?: BaseConnectionOptions): BaseConnection;

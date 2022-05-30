@@ -5,11 +5,8 @@ import type {
 } from "@nestjs/common";
 import { Global, Inject, Module } from "@nestjs/common";
 import { ModuleRef } from "@nestjs/core";
-import type {
-	BaseConnection,
-	BaseConnectionOptions,
-} from "@techmmunity/symbiosis";
-import { Logger } from "@techmmunity/symbiosis";
+import type { BaseConnection, BaseConnectionOptions } from "@thothom/core";
+import { Logger } from "@thothom/core";
 
 import { THOTHOM_MODULE_OPTIONS } from "./thothom.constants";
 

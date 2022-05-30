@@ -16,5 +16,5 @@
 		"skipLibCheck": true,
 		"incremental": true
 	},
-	"include": ["src/**/*.ts", "jest.config.js"]
+	"include": ["src/**/*.ts"]
 }

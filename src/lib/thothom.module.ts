@@ -1,6 +1,6 @@
 import type { DynamicModule } from "@nestjs/common";
 import { Module } from "@nestjs/common";
-import type { BaseConnectionOptions } from "@techmmunity/symbiosis";
+import type { BaseConnectionOptions } from "@thothom/core";
 
 import { ThothOMCoreModule } from "./thothom-core.module";
 

@@ -1,4 +1,4 @@
-import { SymbiosisError } from "@techmmunity/symbiosis";
+import { ThothError } from "@thothom/core";
 
 import type { ArrayForRootOptions, ForRootOptions } from "../types/options";
 
@@ -6,8 +6,8 @@ export const getArrayOptions = <T>(
 	options: ForRootOptions<T>,
 ): ArrayForRootOptions<T> => {
 	if (!options) {
-		throw new SymbiosisError({
-			origin: "SYMBIOSIS",
+		throw new ThothError({
+			origin: "THOTHOM",
 			code: "MISSING_PARAM",
 			message: "Invalid connection options",
 			details: [
@@ -19,8 +19,8 @@ export const getArrayOptions = <T>(
 	if (Array.isArray(options)) {
 		// eslint-disable-next-line @typescript-eslint/no-magic-numbers
 		if (options.length < 1) {
-			throw new SymbiosisError({
-				origin: "SYMBIOSIS",
+			throw new ThothError({
+				origin: "THOTHOM",
 				code: "MISSING_PARAM",
 				message: "Invalid connection options",
 				details: [
@@ -30,8 +30,8 @@ export const getArrayOptions = <T>(
 		}
 
 		if (options.some(opt => !opt.class)) {
-			throw new SymbiosisError({
-				origin: "SYMBIOSIS",
+			throw new ThothError({
+				origin: "THOTHOM",
 				code: "MISSING_PARAM",
 				message: "Invalid connection class",
 				details: [
@@ -44,8 +44,8 @@ export const getArrayOptions = <T>(
 	}
 
 	if (!options.class) {
-		throw new SymbiosisError({
-			origin: "SYMBIOSIS",
+		throw new ThothError({
+			origin: "THOTHOM",
 			code: "MISSING_PARAM",
 			message: "Invalid connection class",
 			details: [
