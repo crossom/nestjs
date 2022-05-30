@@ -11,7 +11,7 @@ export const getArrayOptions = <T>(
 			code: "MISSING_PARAM",
 			message: "Invalid connection options",
 			details: [
-				"`options` is a required parameter to `forRoot` method of `SymbiosisModule`",
+				"`options` is a required parameter to `forRoot` method of `ThothOMModule`",
 			],
 		});
 	}
@@ -24,7 +24,7 @@ export const getArrayOptions = <T>(
 				code: "MISSING_PARAM",
 				message: "Invalid connection options",
 				details: [
-					"At least one options must be specified at the array `options` (`forRoot` method of `SymbiosisModule`)",
+					"At least one options must be specified at the array `options` (`forRoot` method of `ThothOMModule`)",
 				],
 			});
 		}
@@ -35,7 +35,7 @@ export const getArrayOptions = <T>(
 				code: "MISSING_PARAM",
 				message: "Invalid connection class",
 				details: [
-					"`class` is a required property of `options` (`forRoot` method of `SymbiosisModule`)",
+					"`class` is a required property of `options` (`forRoot` method of `ThothOMModule`)",
 				],
 			});
 		}
@@ -49,7 +49,7 @@ export const getArrayOptions = <T>(
 			code: "MISSING_PARAM",
 			message: "Invalid connection class",
 			details: [
-				"`class` is a required property of `options` (`forRoot` method of `SymbiosisModule`)",
+				"`class` is a required property of `options` (`forRoot` method of `ThothOMModule`)",
 			],
 		});
 	}

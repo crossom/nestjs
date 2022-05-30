@@ -3,6 +3,6 @@ import type {
 	BaseConnection,
 } from "@techmmunity/symbiosis";
 
-export interface SymbiosisPluginClass {
+export interface ThothOMPluginClass {
 	new (options?: BaseConnectionOptions): BaseConnection;
 }

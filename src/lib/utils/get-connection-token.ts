@@ -1,2 +1,2 @@
 export const getConnectionToken = (connectionName?: string): string =>
-	`${connectionName?.toUpperCase() || "DEFAULT"}_SYMBIOSIS_CONNECTION`;
+	`${connectionName?.toUpperCase() || "DEFAULT"}_THOTHOM_CONNECTION`;

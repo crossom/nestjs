@@ -15,7 +15,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-## [0.0.10] - 2021-12-05
+### Dependencies
+
+## [0.0.1] - 2022-06-30
+
+### Added
+
+### Changed
+
+- Package name to `ThothOM`, `@thothom/nestjs`
+
+### Fixed
+
+### Removed
+
+### Dependencies
+
+## [@techmmunity/symbiosis-nestjs@0.0.10] - 2021-12-05
 
 ### Added
 
@@ -27,7 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-## [0.0.9] - 2021-11-14
+## [@techmmunity/symbiosis-nestjs@0.0.9] - 2021-11-14
 
 ### Added
 
@@ -41,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-## [0.0.8] - 2021-11-14
+## [@techmmunity/symbiosis-nestjs@0.0.8] - 2021-11-14
 
 ### Added
 
@@ -53,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
-## [0.0.7] - 2021-11-14
+## [@techmmunity/symbiosis-nestjs@0.0.7] - 2021-11-14
 
 ### Added
 
